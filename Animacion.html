@@ -7,29 +7,39 @@
 		<script type="text/javascript">		
 			//var a = 10;
 			//console.log(a);
-			var canvas = document.createElement("canvas");
+			var canvas = document.createElement("canvas"); // Crear el canvas -> almacenar el canvas en una variable llamada canvas
 
-			canvas.width = 500;
-			canvas.height = 500;
-			canvas.style.border = "2px solid #000";
+			canvas.width = 500; // Dimension de ancho = 500
+			canvas.height = 500; // Dimension de altura  = 500
+			canvas.style.border = "2px solid #000"; // Define el estilo de borde  ( ancho, pintado de negro )
 			//canvas.style.margin = "10px";
-			canvas.style.background = "rgba(255,0,0,0.1)";
-			canvas.style.position = "absolute";
-			canvas.style.top = '50px';
-			canvas.style.right = '400px';
+			canvas.style.background = "rgba(255,0,0,0.1)"; // Fondo del canvas
+			canvas.style.position = "absolute"; // Define la posicion del tipo absoluto 
+			canvas.style.top = '50px'; // Define la distancia del canvas con respecto a la parte superior
+			canvas.style.right = '400px';// Define la distancia del canvas con respecto a la parte derecha 
 
-			document.body.appendChild(canvas);
+			document.body.appendChild(canvas); // inserta el canvas dentro de la seccion body del html
 
-			ctx = canvas.getContext("2d");
+			ctx = canvas.getContext("2d"); // Define una variable de trabajo del canvas llamada contexto de formato 2D 
 
-			var x = 0;
-			function update(){
-				x++;
+			var x = 0;    // Define las variables 
+			//var y = 0;
+			// var x=0,y=0,w,y,z;
+			// var vx = 1, vy = -1;
+			
+			function update(){  // Actualiza los variables 
+				x++;  // x = x + 1(velocidad -1 ó 1),  
+				// if( x  ==  500)  
 			}
 
-			function render(){
-				ctx.fillStyle = "white";
+			function render(){  // Dibuja las figuras o trazos 
+				
+				ctx.fillStyle = "white";  // Define el estilo de color del siguiente trazo 
+				ctx.fillRect(0,0,500,500); 
+				
+				ctx.fillStyle = "rgba(255,0,0,0.1)"; // Actualiza el fondo del canvas 
 				ctx.fillRect(0,0,500,500);
+				
 
 				ctx.fillStyle = "black";
 				ctx.fillRect(x,0,50,50);
@@ -38,10 +48,10 @@
 			}
 
 
-			var loop = function(){
+			var loop = function(){  // Proceso repetitivo 
 
-				update();
-				render();
+				update();  // Actualiza 
+				render();  // Diobuja 
 
 				window.requestAnimationFrame(loop,canvas);
 			}
